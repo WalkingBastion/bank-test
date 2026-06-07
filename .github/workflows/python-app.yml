@@ -28,7 +28,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install selenium pytest
     - name: Start web server
-      run: python3 -m http.server 8000 &
+  run: |
+    cd dist
+    python3 -m http.server 8000 &
     - name: Wait for web to be up
       run: |
         for i in {1..20}; do
